@@ -24,6 +24,8 @@
         const res = await fetch(`http://localhost:8000/api/agora/token/${uid}`)
         const { token, channelName, appID } = await res.json()
 
+        const config = useRuntimeConfig()
+        
         console.log(token, channelName, appID, config.public.AGORA_SDK_APP_ID);
         
   
