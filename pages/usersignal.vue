@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2>Agora Signaling Demo</h2>
+      <h2>Agora Signaling Test</h2>
       <button @click="connectAsUser('123456')">Connect as 123456</button>
       <button @click="connectAsUser('654321')">Connect as 654321</button>
       <div v-if="message">Received: {{ message }}</div>
