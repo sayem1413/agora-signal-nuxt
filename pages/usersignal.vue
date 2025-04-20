@@ -39,7 +39,7 @@
         })
   
         // Auto-send a message for demo
-        const otherUser = uid === 'user1' ? 'user2' : 'user1'
+        const otherUser = uid === '123456' ? '654321' : '123456'
         setTimeout(() => {
           this.sendMessage(`Hello from ${uid}`)
         }, 2000)
