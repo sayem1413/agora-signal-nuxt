@@ -24,10 +24,10 @@
         const res = await fetch(`http://localhost:8000/api/agora/token/${uid}`)
         const { token, channelName, appID } = await res.json()
 
-        console.log(token, channelName, appID);
+        console.log(token, channelName, appID, config.public.AGORA_SDK_APP_ID);
         
   
-        this.client = AgoraRTM.createInstance(appID)
+        this.client = AgoraRTM.createInstance(config.public.AGORA_SDK_APP_ID)
   
         await this.client.login({ uid, token })
   
