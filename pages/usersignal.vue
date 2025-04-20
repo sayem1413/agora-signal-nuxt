@@ -20,18 +20,19 @@
     },
     methods: {
       async connectAsUser(uid) {
-        this.currentUid = uid
-        const res = await fetch(`http://localhost:8000/api/agora/token/${uid}`)
+        this.currentUid = uid.toString();
+        alert(uid.toString());
+        const res = await fetch(`http://localhost:8000/api/agora/token/${uid.toString()}`)
         const { token, channelName, appID } = await res.json()
 
-        const config = useRuntimeConfig()
+        const config = useRuntimeConfig();
         
         console.log(token, channelName, appID, config.public.AGORA_SDK_APP_ID);
         
   
         this.client = AgoraRTM.createInstance(config.public.AGORA_SDK_APP_ID)
   
-        await this.client.login({ uid, token })
+        await this.client.login({ uid: uid.toString(), token })
   
         this.channel = await this.client.createChannel(channelName)
         await this.channel.join()
