@@ -20,10 +20,18 @@
     },
     methods: {
       async connectAsUser(uid) {
+
+        const {
+          $axios,
+        } = useNuxtApp()
+        
         this.currentUid = uid.toString();
         alert(uid.toString());
-        const res = await fetch(`http://localhost:8000/api/agora/token/${uid.toString()}`)
-        const { token, channelName, appID } = await res.json()
+        
+        const response = await $axios.get('/agora/rtm-token-by-uid/' + uid);
+        console.log(response);
+        
+        const { token, channelName, appID } = response.data
 
         const config = useRuntimeConfig();
         
